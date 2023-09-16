@@ -1,4 +1,5 @@
-# saletics
+# Saletics
+Saletics is a analytics dashboard for maintaining your products, employees, stocks, and even make business growth decisions.
 
 ## Project setup
 ```
