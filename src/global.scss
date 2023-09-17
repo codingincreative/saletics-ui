@@ -1,0 +1,91 @@
+@import 'bootstrap';
+
+/* COLOR VARIABLES */ 
+$color-primary: #161C24;
+$color-secondary: #2370F8;
+$color-secondary-dark: #0856D8;
+$color-accent: #212B36;
+$color-hover: rgba(33, 43, 54, 0.3);
+
+$color-text: #D6D6D6;
+$color-text-secondary: #6C727F;
+$color-text-bullish: #16C784;
+$color-text-bearish: #EA3943;
+
+$color-white: #fff;
+$color-black: #000;
+
+/* GRID BREAKPOINTS */
+$grid-breakpoints: (
+  xs: 0,
+  xs-1: 320px,
+  xs-2: 375px,
+  xs-3: 426px,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  lg-2: 1064px,
+  xl: 1200px,
+  xxl: 1300px,
+  xxl-1: 1400px,
+  xxl-2: 1440px,
+);
+
+/* TYPOGRAPHY */
+$font-family-primary: 'Inter', Helvetica, Arial, sans-serif;
+
+/* BASE LAYOUT */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  animation-duration: 0s;
+}
+
+body {
+  background-color: $color-primary;
+  font-family: $font-family-primary;
+  color: $color-text;
+  margin: 3rem auto;
+
+  @include media-breakpoint-down(lg) {
+    margin: 0 1.5rem;
+  }
+  @include media-breakpoint-down(sm) {
+    margin: 0 0.5rem;
+  }
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  &::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: $color-secondary;
+    transition: width .2s ease;
+  }
+  &:hover::after {
+    width: 100%;
+  }
+}
+
+/* width */
+*::-webkit-scrollbar {
+  width: 5px;
+  height: 3px;
+}
+/* Track */
+*::-webkit-scrollbar-track {
+  background-color: $color-primary;
+}
+/* Handle */
+*::-webkit-scrollbar-thumb {
+  border-radius: 0.5rem;
+  background-color: $color-secondary-dark;
+}
