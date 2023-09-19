@@ -44,10 +44,10 @@
 
 <script>
 import MenuBar from '@/components/MenuBar'
-import ReportCard from '@/components/ReportCard'
-import SalesGrowthChart from '@/components/SalesGrowthChart'
-import TableDataOverview from '@/components/TableDataOverview'
-import CompanyInfo from '@/components/CompanyInfo'
+import ReportCard from '@/components/overview/ReportCard'
+import SalesGrowthChart from '@/components/overview/SalesGrowthChart'
+import TableDataOverview from '@/components/overview/TableDataOverview'
+import CompanyInfo from '@/components/overview/CompanyInfo'
 
 export default {
   components: { MenuBar, ReportCard, SalesGrowthChart, TableDataOverview, CompanyInfo }

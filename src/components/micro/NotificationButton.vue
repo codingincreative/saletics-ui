@@ -5,7 +5,7 @@
     </div>
     <transition name="notifReveal">
       <div class="notification__box" v-if="notificationPop" :class="left ? 'left' : right ? 'right' : ''" :style="{top: `${top}rem`}">
-        <p>Notifications</p>
+        <p class="notification__box-title">Notifications</p>
         <div class="notification__box-group">
           <p class="notification__box-message">
             <span>Adam</span> has ordered product in <span>Sep 15, 2023</span>.
@@ -28,7 +28,7 @@ export default {
   props: {
     left: { type: Boolean, default: false },
     right: { type: Boolean, default: false },
-    top: { type: Number, default: 3.5}
+    top: { type: String, default: '3.5'}
   },
   data() {
     return {
@@ -88,7 +88,7 @@ export default {
         }
       }
       &.right { left: unset; }
-      p {
+      &-title {
         font-size: 1rem;
         font-weight: 700;
       }

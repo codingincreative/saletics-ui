@@ -6,9 +6,9 @@
     </button>
 
     <transition name="dropdown">
-      <ul class="dropdown__menu" v-if="dropdownMenu">
+      <ul class="dropdown__menu" :class="top ? 'top' : bottom ? 'bottom' : ''" v-if="dropdownMenu">
         <li v-for="value in values" :key="value" @click="changeValues">
-          <a href="#" class="dropdown__menu-item">{{ value }}</a>
+          <p class="dropdown__menu-item">{{ value }}</p>
         </li>
       </ul>
     </transition>
@@ -21,6 +21,14 @@ export default {
     values: {
       type: Array,
       required: true
+    },
+    top: {
+      type: Boolean,
+      default: false
+    },
+    bottom: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
@@ -83,12 +91,19 @@ export default {
       border-radius: 0.25rem;
       background-color: $color-primary;
       z-index: 1;
+      &.top {
+        bottom: 2.75rem
+      }
+      &.bottom {
+        bottom: unset;
+      }
       li {
         list-style: none;
-        a {
+        p {
           color: $color-text-secondary;
           font-size: 0.875rem;
           transition: all 0.2s linear;
+          cursor: pointer;
           &:hover {
             color: $color-text;
           }

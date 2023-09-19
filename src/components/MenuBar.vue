@@ -1,10 +1,14 @@
 <template>
   <div class="menu">
-    <router-link to="/" class="menu__brand">
-      <img src="../assets/icon/menubar/saletics-icon.png" alt="Saletics Logo" class="menu__brand-logo">
+    <div class="menu__brand">
+      <router-link to="/" class="menu__brand-link">
+        <img src="../assets/icon/menubar/saletics-icon.png" alt="Saletics Logo" class="menu__brand-logo">
+      </router-link>
       <img src="../assets/icon/menubar/menu-mobile.svg" alt="Menu Mobile Icon" :class="menubarIconToggle" class="menu__brand--mobile" @click="toggleMenu">
-      <img src="../assets/icon/menubar/saletics-type.png" alt="Saletics Type" class="menu__brand-type">
-    </router-link>
+      <router-link to="/" class="menu__brand-link">
+        <img src="../assets/icon/menubar/saletics-type.png" alt="Saletics Type" class="menu__brand-type">
+      </router-link>
+    </div>
 
     <div class="menu__nav">
       <router-link v-for="menu in menus" :key="menu.name" :to="menu.link" class="menu__nav-list">
@@ -29,14 +33,16 @@
         <NotificationButton left top="4.5" />
       </div>
 
-      <img src="../assets/image/user-image.jpg" alt="User Image" class="menu__user-image">
-      <div class="menu__user-identity">
-        <div class="menu__user-identity-group">
-          <h6>Jean Doe</h6>
-          <p>Staff</p>
+      <router-link to="/edit-profile" class="menu__user-group">
+        <img src="../assets/image/user-image.jpg" alt="User Image" class="menu__user-image">
+        <div class="menu__user-identity">
+          <div class="menu__user-identity-group">
+            <h6>Jean Doe</h6>
+            <p>Staff</p>
+          </div>
+          <img src="../assets/icon/menubar/chevron-right.svg" alt="Chevron Icon">
         </div>
-        <img src="../assets/icon/menubar/chevron-right.svg" alt="Chevron Icon">
-      </div>
+      </router-link>
     </div>
   </div>
 </template>
@@ -52,11 +58,11 @@ export default {
       menubarIconToggle: '',
       menus: [
         { link: '/', icon: require('@/assets/icon/menubar/overview.svg'), altIcon: 'Overview Icon', name: 'Overview' },
-        { link: 'dashboard', icon: require('@/assets/icon/menubar/orders.svg'), altIcon: 'Orders Icon', name: 'Orders' },
-        { link: 'dashboard', icon: require('@/assets/icon/menubar/products.svg'), altIcon: 'Products Icon', name: 'Products' },
-        { link: 'dashboard', icon: require('@/assets/icon/menubar/analytics.svg'), altIcon: 'Analytics Icon', name: 'Analytics' },
-        { link: 'dashboard', icon: require('@/assets/icon/menubar/shipment.svg'), altIcon: 'Shipment Icon', name: 'Shipment' },
-        { link: 'dashboard', icon: require('@/assets/icon/menubar/employee.svg'), altIcon: 'Employee Icon', name: 'Employee' }
+        { link: '/orders', icon: require('@/assets/icon/menubar/orders.svg'), altIcon: 'Orders Icon', name: 'Orders' },
+        { link: '/products', icon: require('@/assets/icon/menubar/products.svg'), altIcon: 'Products Icon', name: 'Products' },
+        { link: '/analytics', icon: require('@/assets/icon/menubar/analytics.svg'), altIcon: 'Analytics Icon', name: 'Analytics' },
+        { link: '/shipment', icon: require('@/assets/icon/menubar/shipment.svg'), altIcon: 'Shipment Icon', name: 'Shipment' },
+        { link: '/employee', icon: require('@/assets/icon/menubar/employee.svg'), altIcon: 'Employee Icon', name: 'Employee' }
       ]
     }
   },
@@ -106,6 +112,8 @@ export default {
         flex-direction: row-reverse;
       }
 
+      &-link { &::after { display: none; } }
+
       &-logo {
         @include media-breakpoint-down(lg) {
           display: none;
@@ -125,6 +133,7 @@ export default {
 
       &--mobile {
         display: none;
+        cursor: pointer;
         @include media-breakpoint-down(xs-2) {
           order: 1;
         }
@@ -222,6 +231,15 @@ export default {
         display: none;
         @include media-breakpoint-down(lg) {
           display: block;
+        }
+      }
+
+      &-group {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        &::after {
+          display: none;
         }
       }
 

@@ -89,3 +89,10 @@ a {
   border-radius: 0.5rem;
   background-color: $color-secondary-dark;
 }
+
+// Placeholder Color
+*::-webkit-input-placeholder,
+*:-ms-input-placeholder,
+*::-ms-input-placeholder {
+  color: $color-text-secondary;
+}
