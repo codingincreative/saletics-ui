@@ -7,6 +7,7 @@ import ShipmentView from '@/views/ShipmentView'
 import EmployeeView from '@/views/EmployeeView'
 import EditProfile from '@/views/EditProfileView'
 import EditCompany from '@/views/EditCompanyView'
+import NotFoundView from '@/views/NotFoundView'
 
 const routes = [
   {
@@ -49,6 +50,16 @@ const routes = [
     name: 'editCompany',
     component: EditCompany
   },
+  {
+    path: '/:pathMatch(.*)*',
+    name: 'notFound',
+    component: NotFoundView
+  },
+  {
+    path: '/:pathMatch(.*)',
+    name: 'badNotFound',
+    component: NotFoundView
+  }
 ]
 
 const router = createRouter({

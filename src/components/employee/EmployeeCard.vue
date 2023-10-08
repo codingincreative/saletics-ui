@@ -1,6 +1,6 @@
 <template>
   <div class="employee-card">
-    <img :src="employeeImage" :alt="employeeName" class="employee-card__image">
+    <img :src="employeeImage" :alt="employeeName" class="employee-card__image" loading="lazy">
     <div class="employee-card__identity">
       <p class="employee-card__identity-name">{{ employeeName }}</p>
       <p class="employee-card__identity-job">{{ employeeJob }}</p>
